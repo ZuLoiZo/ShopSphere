@@ -404,17 +404,13 @@ vercel --prod
 
 **Nils Blandel**
 
-- GitHub: [@votre-username](https://github.com/votre-username)
-- LinkedIn: [Votre Profil](https://linkedin.com/in/votre-profil)
-- Portfolio: [comcloser.fr](https://comcloser.fr)
-- Email: votre@email.com
-
----
+- GitHub: [@ZuLoiZo](https://github.com/ZuLoiZo)
+- LinkedIn: [Blandel Nils](https://linkedin.com/in/blandel.nils)
+- Email: blandel.nils@gmail.com
 
 ## 📝 Licence
 
 Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
 ---
 
 ## 🙏 Remerciements

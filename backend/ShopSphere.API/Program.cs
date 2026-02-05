@@ -14,9 +14,9 @@ builder.Services.AddEndpointsApiExplorer();
 // Swagger configuration with JWT support
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo 
-    { 
-        Title = "ShopSphere API", 
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "ShopSphere API",
         Version = "v1",
         Description = "E-commerce API with .NET 8"
     });
@@ -24,11 +24,12 @@ builder.Services.AddSwaggerGen(c =>
     // JWT Authentication in Swagger
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token",
+        Description = "JWT Authorization header using the Bearer scheme. Enter your token in the text input below.",
         Name = "Authorization",
         In = ParameterLocation.Header,
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT"
     });
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -46,16 +47,15 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
-
 // Database configuration
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? builder.Configuration["DATABASE_URL"];
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
 // JWT Authentication
-var jwtSecret = builder.Configuration["JWT:Secret"] 
+var jwtSecret = builder.Configuration["JWT:Secret"]
     ?? builder.Configuration["JWT_SECRET"]
     ?? throw new InvalidOperationException("JWT Secret not configured");
 
